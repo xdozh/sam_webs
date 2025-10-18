@@ -29,6 +29,21 @@ export default function AnniversaryHome({ onNavigateToGallery }: AnniversaryHome
     loadTodayMessage();
   }, []);
 
+  // inside AnniversaryHome
+useEffect(() => {
+  let mounted = true;
+  (async () => {
+    const idx = await getTodayMessageIndex(MESSAGES.length);
+    if (mounted) {
+      currentMessage(MESSAGES[idx]);
+      dateLabel(getFormattedDate());
+      setShowDailyNote(true);
+    }
+  })();
+  return () => { mounted = false; };
+}, []);
+
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && showDailyNote) {

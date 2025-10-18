@@ -1,9 +1,14 @@
+// src/utils/dailyNoteService.ts
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Only create the client if both values exist
+const supabase =
+  supabaseUrl && supabaseAnonKey
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : null;
 
 export function getTodayDateString(): string {
   const today = new Date();
@@ -14,47 +19,42 @@ export function getRandomMessageIndex(totalMessages: number, date: string): numb
   const hash = date.split('').reduce((acc, char) => {
     return char.charCodeAt(0) + ((acc << 5) - acc);
   }, 0);
-  return Math.abs(hash) % totalMessages;
+  const idx = Math.abs(hash) % totalMessages;
+  return idx;
 }
 
+// Use Supabase if configured; otherwise gracefully fall back
 export async function getTodayMessageIndex(totalMessages: number): Promise<number> {
-  const todayDate = getTodayDateString();
+  const date = getTodayDateString();
+  const fallbackIndex = getRandomMessageIndex(totalMessages, date);
 
-  const { data, error } = await supabase
-    .from('daily_notes')
-    .select('message_index')
-    .eq('date', todayDate)
-    .maybeSingle();
+  if (!supabase) return fallbackIndex;
 
-  if (error) {
-    console.error('Error fetching daily note:', error);
-    return getRandomMessageIndex(totalMessages, todayDate);
+  try {
+    const { data, error } = await supabase
+      .from('daily_notes')
+      .select('index')
+      .eq('date', date)
+      .maybeSingle();
+
+    if (error) throw error;
+
+    if (data?.index != null) return data.index;
+
+    // Not found → save and return fallback
+    const { error: insertError } = await supabase
+      .from('daily_notes')
+      .insert({ date, index: fallbackIndex });
+
+    if (insertError) console.error('Error saving daily note:', insertError);
+
+    return fallbackIndex;
+  } catch (e) {
+    console.error('Supabase error:', e);
+    return fallbackIndex;
   }
-
-  if (data) {
-    return data.message_index;
-  }
-
-  const randomIndex = getRandomMessageIndex(totalMessages, todayDate);
-
-  const { error: insertError } = await supabase
-    .from('daily_notes')
-    .insert({
-      date: todayDate,
-      message_index: randomIndex,
-    });
-
-  if (insertError) {
-    console.error('Error saving daily note:', insertError);
-  }
-
-  return randomIndex;
 }
 
 export function getFormattedDate(date: Date = new Date()): string {
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
