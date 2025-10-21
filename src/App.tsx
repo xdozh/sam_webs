@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import LockScreen from './components/LockScreen';
 import AnniversaryHome from './pages/AnniversaryHome';
 import GoldenMomentsPage from './pages/GoldenMomentsPage';
-import YourEyesOnlyPage from './pages/YourEyesOnly'; // 🆕 import
+import YourEyesOnlyPage from './pages/YourEyesOnly';
+import FlowersPage from './pages/FlowersPage'; // 🆕 import
 
 function App() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'gallery' | 'youreyesonly'>('home'); // 🆕 added youreyesonly
+  const [currentPage, setCurrentPage] = useState<'home' | 'gallery' | 'youreyesonly' | 'flowers'>('home'); // 🆕
 
   const handleUnlock = () => {
     setIsUnlocked(true);
@@ -17,9 +18,7 @@ function App() {
 
   useEffect(() => {
     const preferReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (preferReducedMotion) {
-      setShowConfetti(false);
-    }
+    if (preferReducedMotion) setShowConfetti(false);
   }, []);
 
   return (
@@ -31,19 +30,24 @@ function App() {
           {currentPage === 'home' && (
             <AnniversaryHome
               onNavigateToGallery={() => setCurrentPage('gallery')}
-              onNavigateToYourEyesOnly={() => setCurrentPage('youreyesonly')} // 🆕 added prop
+              onNavigateToYourEyesOnly={() => setCurrentPage('youreyesonly')}
+              onNavigateToFlowers={() => setCurrentPage('flowers')} // 🆕
             />
           )}
 
           {currentPage === 'gallery' && (
             <GoldenMomentsPage
               onBack={() => setCurrentPage('home')}
-              onNavigateToYourEyesOnly={() => setCurrentPage('youreyesonly')} // 🆕 added
+              onNavigateToYourEyesOnly={() => setCurrentPage('youreyesonly')}
             />
           )}
 
           {currentPage === 'youreyesonly' && (
-            <YourEyesOnlyPage onBack={() => setCurrentPage('home')} /> // 🆕 new route
+            <YourEyesOnlyPage onBack={() => setCurrentPage('home')} />
+          )}
+
+          {currentPage === 'flowers' && (
+            <FlowersPage onBack={() => setCurrentPage('home')} /> // 🆕
           )}
 
           {showConfetti && (
