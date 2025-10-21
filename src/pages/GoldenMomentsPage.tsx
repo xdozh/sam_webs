@@ -1,5 +1,6 @@
 import { ArrowLeft, Heart } from 'lucide-react';
 
+
 interface Memory {
   id: number;
   image: string;
@@ -24,6 +25,7 @@ const memories: Memory[] = [
   { id: 15, image: '/images/memories/Best Birthday.jpeg', caption: 'Samuels Best Birthday❤️' },
   { id: 16, image: '/images/memories/Future Talks.jpeg', caption: 'Future talks❤️' },
   { id: 17, image: '/images/memories/Princesses Birthday.jpeg', caption: 'Princesses Birthday❤️' },
+  { id: 17, image: '/images/memories/First Picture.jpeg', caption: 'Our First Picture❤️' },
   { id: 18, image: '/images/memories/First Message.jpeg', caption: 'The Beginning❤️' },
 ];
 
