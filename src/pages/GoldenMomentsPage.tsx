@@ -7,7 +7,7 @@ interface Memory {
 }
 
 const memories: Memory[] = [
-  { id: 1, image: 'public/images/memories/Promise.jpeg', caption: 'Promise❤️' },
+  { id: 1, image: 'images/memories/Promise.jpeg', caption: 'Promise❤️' },
   { id: 2, image: 'public/images/memories/Anniversary.jpeg', caption: 'One Year❤️' },
   { id: 3, image: 'public/images/memories/Pretty Hands.jpeg', caption: 'Aquarium Date❤️' },
   { id: 4, image: 'public/images/memories/Aquarium date.jpeg', caption: 'Aquarium Selfie❤️' },
