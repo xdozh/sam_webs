@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 
 interface Memory {
@@ -7,12 +8,16 @@ interface Memory {
 }
 
 const memories: Memory[] = [
-  { id: 1, image: '/images/my_eyes_only/IMG_8053.JPG', caption: 'Promise❤️' },
-  { id: 2, image: '/images/my_eyes_only/IMG_8056.PNG', caption: 'One Year❤️' },
-  { id: 3, image: '/images/my_eyes_only/IMG_8058.JPG', caption: 'Aquarium Date❤️' },
-  { id: 4, image: '/images/my_eyes_only/IMG_8059.JPG', caption: 'Aquarium Selfie❤️' },
-  { id: 5, image: '/images/my_eyes_only/IMG_8060.PNG', caption: 'Princess and her man❤️' },
- 
+  { id: 1, image: '/images/my_eyes_only/IMG_8053.JPG', caption: 'Nap time❤️' },
+  { id: 2, image: '/images/my_eyes_only/IMG_8056.PNG', caption: 'Perfect kisses❤️' },
+  { id: 3, image: '/images/my_eyes_only/IMG_8058.JPG', caption: 'Skin to skin❤️' },
+  { id: 4, image: '/images/my_eyes_only/IMG_8059.JPG', caption: 'Cuteee❤️' },
+  { id: 5, image: '/images/my_eyes_only/IMG_8060.PNG', caption: 'skin to skinnnn❤️' },
+  { id: 5, image: '/images/memories/Getawayy.jpeg', caption: 'Face of love❤️' },
+  { id: 5, image: '/images/memories/Gym.jpeg', caption: 'For you' },
+  { id: 5, image: '/images/memories/Gymm.jpeg', caption: 'Caught in 4k' },
+  { id: 5, image: '/images/memories/Victoryy.jpeg', caption: 'Pubggg' },
+  { id: 5, image: '/images/memories/Late night ft.jpeg', caption: 'Our Facetimess❤️' },
 ];
 
 interface YourEyesOnlyPageProps {
@@ -20,6 +25,58 @@ interface YourEyesOnlyPageProps {
 }
 
 export default function YourEyesOnlyPage({ onBack }: YourEyesOnlyPageProps) {
+  const [authorized, setAuthorized] = useState(false);
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  // The correct password (case-insensitive)
+  const correctPassword = 'M01';
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Make both lowercase to ignore case
+    if (password.trim().toLowerCase() === correctPassword.toLowerCase()) {
+      setAuthorized(true);
+      setError('');
+    } else {
+      setError('Incorrect password. Try again 💌');
+    }
+  };
+
+  if (!authorized) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-purple-950 via-rose-900 to-pink-400/30 text-pink-100 px-4">
+        <h1 className="font-serif text-4xl mb-6 text-center">🔒 Your Eyes Only</h1>
+        <p className="mb-4 text-pink-200 text-center">
+          Enter the secret password to view these memories (our first room) 💞
+        </p>
+        <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 w-full max-w-xs">
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
+            className="w-full px-4 py-2 rounded-lg bg-white/10 text-pink-100 placeholder-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400"
+          />
+          <button
+            type="submit"
+            className="px-6 py-2 bg-pink-500 hover:bg-pink-600 rounded-lg text-white font-medium shadow-lg transition"
+          >
+            Unlock 💖
+          </button>
+        </form>
+        {error && <p className="mt-3 text-red-300 text-sm">{error}</p>}
+        <button
+          onClick={onBack}
+          className="mt-6 text-sm text-pink-300 hover:text-pink-200 flex items-center gap-1 transition"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Home
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen relative overflow-x-hidden">
       {/* Background gradient */}

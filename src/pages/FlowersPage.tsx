@@ -7,7 +7,15 @@ interface Flower {
 }
 
 const flowers: Flower[] = [
-  { id: 1, image: '/images/lock/portrait.jpg', caption: 'A Rose for My Love ❤️' },
+  { id: 1, image: '/images/memories/Anniversary Flowers.jpg', caption: 'Our Year❤️' },
+  { id: 1, image: '/images/memories/Flowers2.jpg', caption: 'Beautiful Princess❤️' },
+  { id: 2, image: '/images/memories/Fav Flowers.jpg', caption: 'Your Fav Flowers❤️' },
+  { id: 3, image: '/images/memories/First Flowers.jpg', caption: 'The First Flowers❤️' },
+  { id: 4, image: '/images/memories/Flowers.jpg', caption: 'Pretty Princess❤️' },
+  { id: 5, image: '/images/memories/Jan Flowers.jpg', caption: 'Back home❤️' },
+  { id: 6, image: '/images/memories/Jan flowerss.jpg', caption: 'My Girl❤️' },
+  { id: 7, image: '/images/memories/my Fav flower.jpg', caption: 'My Fav Flower❤️' },
+ 
 ];
 
 interface FlowersPageProps {

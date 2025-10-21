@@ -70,7 +70,7 @@ export default function AnniversaryHome({
               >
                 <span className="flex items-center gap-3">
                   <Heart className="w-6 h-6" />
-                  {showDailyNote ? "Hide Today's Note" : "Today's Note"}
+                  {showDailyNote ? "Hide Today's Affirmation" : "Today's Affirmations"}
                 </span>
               </button>
 

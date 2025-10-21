@@ -9,7 +9,7 @@ export default function DailyMessageCard({ message, dateLabel }: DailyMessageCar
   return (
     <div className="bg-gradient-to-br from-amber-50 to-rose-50 rounded-2xl p-6 md:p-8 shadow-xl border border-amber-200/50">
       <h3 className="font-serif text-xl md:text-2xl text-slate-800 mb-4 md:mb-6 text-center">
-        Your note for today
+        Your Affirmations for today
       </h3>
 
       <div className="flex justify-center mb-4 md:mb-6">

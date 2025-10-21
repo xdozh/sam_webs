@@ -31,13 +31,10 @@ export default function FirstMetSection() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
           <div className="order-2 md:order-1">
             <p className="font-sans text-base md:text-lg text-slate-700 leading-relaxed mb-4">
-              This is where our story started, where two paths crossed and became
-              one beautiful journey. Every moment since has been a treasure, and
-              it all began right here.
+              Ohh take me back to the night we met. This is the place that will be engraved in my head and i'll never forget, because it was here where I realised that i found my woman.
             </p>
             <p className="font-sans text-base md:text-lg text-slate-700 leading-relaxed mb-4">
-              I remember the first time I saw you, the way you smiled, the way
-              you laughed. That moment changed everything for me.
+              This is the place where my life took the biggest turn, and I'm immensely blessed that I met you my lover. You are my world and I'm Forever grateful to have a woman like you my baby. We'll look back in the future and reminisce of this beautiful time. I love you with my whole heart. 
             </p>
 
             {/* Location Box */}
