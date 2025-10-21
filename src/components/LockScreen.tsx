@@ -5,7 +5,7 @@ interface LockScreenProps {
   onUnlock: () => void;
 }
 
-const validPasswords = ['jelk', 'iloveyou']; // ✅ lowercase for comparison
+const validPasswords = ['julk', 'iloveyou']; // ✅ lowercase for comparison
 
 export default function LockScreen({ onUnlock }: LockScreenProps) {
   const [password, setPassword] = useState('');
@@ -63,7 +63,7 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
 
           {/* Title */}
           <h1 className="font-serif text-3xl md:text-4xl text-center text-amber-100 mb-2 leading-tight">
-            Heyyy Captain Cute
+            Heyyy sweetheart 
           </h1>
 
           <p className="text-center text-amber-200/80 mb-6 md:mb-8 text-base md:text-lg">
