@@ -7,18 +7,25 @@ interface Memory {
 }
 
 const memories: Memory[] = [
-  { id: 1, image: '/images/memories/memory-01.jpg', caption: 'Our first adventure' },
-  { id: 2, image: '/images/memories/memory-02.jpg', caption: 'That beautiful sunset' },
-  { id: 3, image: '/images/memories/memory-03.jpg', caption: 'Laughing together' },
-  { id: 4, image: '/images/memories/memory-04.jpg', caption: 'A perfect day' },
-  { id: 5, image: '/images/memories/memory-05.jpg', caption: 'Making memories' },
-  { id: 6, image: '/images/memories/memory-06.jpg', caption: 'Just us two' },
-  { id: 7, image: '/images/memories/memory-07.jpg', caption: 'Sweet moments' },
-  { id: 8, image: '/images/memories/memory-08.jpg', caption: 'Forever cherished' },
-  { id: 9, image: '/images/memories/memory-09.jpg', caption: 'Pure happiness' },
-  { id: 10, image: '/images/memories/memory-10.jpg', caption: 'Together always' },
-  { id: 11, image: '/images/memories/memory-11.jpg', caption: 'My favorite place' },
-  { id: 12, image: '/images/memories/memory-12.jpg', caption: 'With you, home' },
+  { id: 1, image: 'public/images/memories/Promise.jpeg', caption: 'Promise❤️' },
+  { id: 2, image: 'public/images/memories/Anniversary.jpeg', caption: 'One Year❤️' },
+  { id: 3, image: 'public/images/memories/Pretty Hands.jpeg', caption: 'Aquarium Date❤️' },
+  { id: 4, image: 'public/images/memories/Aquarium date.jpeg', caption: 'Aquarium Selfie❤️' },
+  { id: 5, image: 'public/images/memories/Anniversary1.jpeg', caption: 'Princess and her man❤️' },
+  { id: 6, image: 'public/images/memories/Mall Date.jpeg', caption: 'Mall Date❤️' },
+  { id: 7, image: 'public/images/memories/Getaway1.jpeg', caption: 'Beauty and the beast❤️' },
+  { id: 8, image: 'public/images/memories/Getaway.jpeg', caption: 'Safe Place❤️' },
+  { id: 9, image: 'public/images/memories/Healing talk.jpeg', caption: 'Deep Talks❤️' },
+  { id: 10, image: 'public/images/memories/Arcade.jpeg', caption: 'Arcade Day❤️' },
+  { id: 11, image: 'public/images/memories/Future Furniture shopping.jpeg', caption: 'Future Shopping❤️' },
+  { id: 12, image: 'public/images/memories/First Getaway1.jpeg', caption: 'Words arent enough❤️' },
+  { id: 13, image: 'public/images/memories/First Getaway.jpeg', caption: 'Perfect time❤️' },
+  { id: 14, image: 'public/images/memories/Habesha Restaurant.JPG', caption: 'Habesha Foodddd❤️' },
+  { id: 15, image: 'public/images/memories/Best Birthday.jpeg', caption: 'Samuels Best Birthday❤️' },
+  { id: 16, image: 'public/images/memories/Future Talks.jpeg', caption: 'Future talks❤️' },
+  { id: 17, image: 'public/images/memories/Princesses Birthday.jpeg', caption: 'Princesses Birthday❤️' },
+  { id: 18, image: ' public/images/memories/First Message.jpeg', caption: 'The Beginning❤️' },
+ 
 ];
 
 interface GoldenMomentsPageProps {

@@ -5,7 +5,7 @@ interface LockScreenProps {
   onUnlock: () => void;
 }
 
-const validPasswords = ['dumbo', 'you'];
+const validPasswords = ['jelk', 'iloveyou']; // ✅ lowercase for comparison
 
 export default function LockScreen({ onUnlock }: LockScreenProps) {
   const [password, setPassword] = useState('');
@@ -14,12 +14,12 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const trimmedPassword = password.trim().toLowerCase();
+    const trimmedPassword = password.trim().toLowerCase(); // ✅ consistent case
 
     if (validPasswords.includes(trimmedPassword)) {
       onUnlock();
     } else {
-      setError("No no (in my accent) That's not quite right. Try again? You know it.");
+      setError("What we named our first baby");
       setIsShaking(true);
       setTimeout(() => setIsShaking(false), 500);
     }
@@ -27,10 +27,11 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
+      {/* ✅ Background Image */}
       <div
         className="absolute inset-0 opacity-30"
         style={{
-          backgroundImage: 'url(/images/lock/bg-lock.jpg)',
+          backgroundImage: 'url(/images/lock/bg-lock1.jpg)', // ✅ removed "public/"
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -44,11 +45,12 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
             isShaking ? 'animate-shake' : 'animate-soft-glow'
           }`}
         >
+          {/* Portrait */}
           <div className="flex justify-center mb-6">
             <div className="relative">
               <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-amber-300/50 shadow-gold-glow">
                 <img
-                  src="/images/lock/portrait.jpg"
+                  src="/images/lock/portrait.jpg" // ✅ fixed path
                   alt="Portrait"
                   className="w-full h-full object-cover"
                 />
@@ -59,6 +61,7 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
             </div>
           </div>
 
+          {/* Title */}
           <h1 className="font-serif text-3xl md:text-4xl text-center text-amber-100 mb-2 leading-tight">
             Heyyy Captain Cute
           </h1>
@@ -67,13 +70,14 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
             There's a small gift for you
           </p>
 
+          {/* Password Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label
                 htmlFor="password"
                 className="block text-sm md:text-base font-medium text-amber-100 mb-2"
               >
-                What you call me when I act silly (cute name)
+                Our cute nickname
               </label>
               <input
                 type="text"
@@ -104,11 +108,12 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
           </form>
 
           <p className="mt-6 text-center text-amber-200/60 text-sm">
-            Enter your secret code to see what I have folded for you 💌
+            Enter your secret code to see what I have for you💌
           </p>
         </div>
       </div>
 
+      {/* Floating sparkles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(12)].map((_, i) => (
           <div

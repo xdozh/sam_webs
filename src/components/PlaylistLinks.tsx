@@ -6,7 +6,7 @@ interface PlaylistLinksProps {
 }
 
 export default function PlaylistLinks({
-  ourUrl = 'https://example.com/our-playlist',
+  ourUrl = 'https://spotify.link/ZKp5xSkGDXb',
   privateUrl = 'https://example.com/private-playlist',
 }: PlaylistLinksProps) {
   return (
