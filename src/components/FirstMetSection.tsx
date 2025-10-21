@@ -72,7 +72,7 @@ export default function FirstMetSection() {
           <div className="order-1 md:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-amber-200/50">
               <img
-                src="public/images/first-meet/Ruzo.png"
+                src="/images/first-meet/Ruzo.png"
                 alt="The place where we first met"
                 className="w-full h-auto object-cover"
               />
