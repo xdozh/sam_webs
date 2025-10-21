@@ -1,0 +1,80 @@
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+
+interface LettersFromMyHeartPageProps {
+  onBack: () => void;
+}
+
+const LETTERS: string[] = [
+"1 year? 52 weeks? 365 days? 8,760 hours? 31, 536, 000 seconds? Wow even writing this is making me very emotional. We did it my babey! I've been trying so hard for weeks to know how I can start this off right but I realised that the best thing is to speak from my heart. I'mso proud of us and how far we've come, I can literally remember the first time we met like it was yesterday and I mean it, from every single passing moment, to me being nervous the longer I had to wait for my princess, to the first time I got a glimpse of your beauty, to me contemplating whether its right to hold your hand on the way down from the stairs or not, to how beautifully you dressed, to how you made me feel a feeling l've never felt before, to how calm you made my soul on that night. There was many many beautiful things about that night that I will never forget, but most important of all is how sure you made me feel that you are the woman I wanna spend the rest of my life with. My most beautiful princess, my sweetest angel, my Babygirl, my best friend, my twin, my literal everything. Oh how my heart falls into so much joy when i see that beautiful precious smile of yours, being able to keep that smile on your face is one of my biggest missions. It’s a blessing to go through life with you my heart, I realised how beautiful love is, even more so now that I found “HER”. Thank you honestly for everything my soul, it hasn’t been easy, it hasn’t been a simple path, but it’s been such a beautiful one, you’ve allowed me to realise what love truly is and the most beautiful part is constantly choosing you every single day no matter the circumstances. We’ve grown and come such a long way, it’s actually crazy I can say so much but I feel like we’d be reading this all night. When I say this, I say this whole heartedly, you my princess have made me such a better man, there’s still so much to change and so much to do but I see the man I’m becoming and you are a huge part of that. Just the thought of you alone pushes me in times where I’m feeling tired. I can’t wait to be the man to give you everything you want, because you my baby deserve the WORLD. I look forward to the future and I get so so excited, because every day is a step closer to us being together everyday, unlimited sleepovers 😂, waking up to see your beautiful face in the morning Ughhhh, I can’t wait. The way how times flying it might not be that long until that happens my princess. I bless the Lord that he gave me such a wonderful loving caring beautiful woman like you, he gave me YOU. As we go in to our future together my lover, I want this to be a turning point where we put our Lord and Saviour as the center of our life and relationship, we love the Lord but we can give him much more of ourselves and I want us to make sure that happens. Once again my princess I wanna thank you for stepping in to my life, because with you it has been so much more meaningful and I have more reason, I know I say this often but when I do I mean it, you brought the colour into my world my lover, you are my safety. Thank you for being yourself and that’s all I ever wanted. Our next chapter? Brings so much joy excitement and laughter to even think about it my heart, ughh im so thankful for you it’s insane. I love you with every single breath that I take. Song of Solomon 3:4 (ESV) “I have found the one whom my soul loves. Happy 1 year anniversary my life, To us forever, my future wife❤️",
+"My baby, you know words can never fully describe how much I love you. there's so so many reasons why I love you, and I thank God that he blessed me with someone like you, you've shown what it truly means to love and how to walk in it. from how you care about me to how you make me feel like I can be myself around you which is something I don't take lightly at all, to you're effort in expressing yourself, to how just even your presence is so warming to me, your beautiful smile brightens up my day, hearing your laugh brings so much warmth to my heart, you have such a loving beautiful amazing soul. I can't stress enough how blessed I am to have someone like you, it's funny when you say you think we're not compatible, because how I see it, you're the type of woman l've always wanted in my life, just because we might not see eye to eye at times, is not a sign of that. we still never give up on each other in the times where we might feel like it's the toughest time. I love you, so so so much, with all of my being and with all my heart. nothing and I mean nothing will ever change that. there's so much more let alone how much I miss you every single day that passes by. I love you🫂❤️",
+"My heart, my love, my baby, my everything, who would've thought at the beginning of this year that you would be my lover? you've changed my whole life around, now we end 2024 with so much to look ahead into 2025. I cant be more grateful to have you in my life, I thank God everyday for you and I know i say it all the time but I mean it with all my heart every. single. time. you are my answered prayer. Another year ahead and what better way to start it with the love of my life by my side, you've taught me a lot and helped me get through more than you know. I cannot begin to express the love I have for you, it is endless and you deserve the ABSOLUTE WORLD, and I truly mean it. you have such a beautiful, amazing, caring, loving, joyful soul and there is literally and I mean literally NO ONE like you in this world. I Love you so so much, I love you with all my heart, it hurts that we can't be together to share this moment, I miss you every single moment that passes by but I gotta get through this , Can't wait for the year ahead that we share together, I know with God by our side we will be able to be our best in this year. I love you my baby, my moving heart🫶❤️",
+"it's been 4 months since the day you became mine, oh how time flies! My baby you have made me the luckiest and happiest man there is because of your presence in my life let alone all the things that you have done to change me and love me in the best way possible. I've learnt alot in this time that l've know you and I know that this is just the beginning to something absolutely beautiful. The more I understand who you are and everything about you the more my love grows for you each day that goes by. I really wish that I could be with you everyday but I guess that's just something we'll have to be patient for. Nothing matters when I'm with you, it's as if my mind completely quiets down completely when I'm with you which is a feeling l've never felt in my life, you presence alone makes me feel that way and there's so many other things the way how you look so very beautiful when you're emotional with me and how you're eyes shine brighter than the stars and how radiant your personality is you're literally a bundle of joy and sweetness and how pure and gentle your soul is and how your body is perfect to the tea! i have both my bestfriend and lover in one person am i not the luckiest guy in the world? my absolute favourite soul ever, blessed to know that we're interlinked because l'd have it no other way, i love you so very much my everything to forever together.",
+"My lovely princess, wow just WOW, 9 months? it can't be that fast, being pregnant and giving birth to our babies gonna be a breezzeee then . My heart is heavy because im not able to be by your side lighting up our 9th candle.This summer hasn't been easy it has been far from that, the thought that I can't just up and go to see you is hurting me deeply, but there's a lot of growth that we went through that made us stronger than when we started the summer. you are continually helping me see where I can improve and be better and being my rock and my safest place. The next time I celebrate this special day with you, I'll be with you. That fact alone brings so much joy to my heart. We have become so much stronger in many ways and it has been even better doing that together with my baby. Oh how much I love you , my light, my joy, my heart, you are genuinely unbelievable, you are the light to my world, you always bring so much joy to my heart and always find a way to brighten me up. I love you deeply yene mar, every day with you makes me fall in love with you more and more, your beautiful soul will never fail to amaze me. My beautiful princess, happy 9 months anniversary, to many more!!!",
+"My baby, my lover, my most beautiful beautiful girl wow just wow, 8 months has never felt so fast. This time away has really taught me alot about us, alot honestly. We've come such a long way honestly, but l'm so happy at the same time that it's flying because it's another day closer to seeing my baby again You are my angel and when I say it you should genuinely understand what I mean, you've not only been the biggest blessing to me but you're helping me shape myself into the man that God has called me to be and I know that I will because I have you by my side. I cannot wait honestly l'm so excited for our future because all I see is a bright beautiful lovely future filled with love joy peace and happiness, I'm cheesing and getting all emotional while writing this because I'm really seeing the difference that you bring in my life, you're my colour in this world of darkness, but who cares about the world anyway at the end of the day my world is you . I love how this time away has helped us to understand each other better aswell ik that this will be a great foundation for the years to come (basically forever). Oh how I miss you so very much; how I miss you so very much, how I miss your touch, your cute laugh, seeing the joy in your eyes, your presence, just your presence is more than enough for me. I remember how beautifully we started off our year, and we know the devils fighting so hard for us to slip away but we realised it all and now we're going to continue and finish off the year in the best way my heart, together, I thank my heavenly father because he blessed me with his angel for me. I love you so so so very dearly much my Princess, and every day it only grows stronger Happy 8 months anniversary my sweetheart!!",
+"My lover, my princess, my heart, my home, my soul, yene konjo, yene fikirrr. The fact that l'm even able to write this to you is such a big blessing. You're my gift, my most precious gift that God has blessed me with. I can't even begin to fully express the love and gratitude I have for you my baby. Thank you, I genuinely want to thank you from the depths of my heart for just being you, let alone everything you've done for me, from how much you love, to how thoughtful you are, to how you're literally a bundle of joy, you're literally the light to my life. Oh how precious you are to me, you don't understand. This past month hasn't been the easiest at all, but we came out of this stronger than ever in so many ways, my phones on 7% now aswell what a coincidence, anyways I'm so thankful for how we got through that time and how strong you are aswell, it's unbelievable how strong my baby is. You're literally the cutest and most thoughtful person. 7 months baby, 7 months, we taking it to foreverrrr twinn. 7 months gonna turn into 7 years in a flash. I wanna thank you for putting up with me, I can be so annoying Ik darling, but I'm working on all my problems I love you so so so so so much my biggest blessing. Happy 7 months anniversary my loveyyy",
+"Will you be mine forever?... oh wait it's already been 6 months since I popped the question, it feels like yesterday. My precious lover, my beautiful princess, my cute baby, time is flying but atleast it's flying with you by my side my princess, and i couldn't be more happy that that's the case. You've completely turned my world upside down, you're my whole world and forever be that way. In these past months, we have grown so so so much as individuals and together. I love to see you grow in to the loving beautiful intelligent amazing woman that God has created you to be and to understand the mission he has for you and our lives. I can't explain how immensely proud of you l am in every single way. You are so strong! Very strong and I'm realising that more and more every day. My lover, I'm emotional in cause ik how fast time will fly and I'll be able to see you be everything you wished for you in your life, and I'll be right here by your side holding you through every single little thing. You are amazing, in every single way my heart, literally in every single way. I love you yene konjo, with all my heart, all my soul and with every little bit of me and so so very very very much more. This is just the beginning my baby, so much more beautiful things await us, to forever my future wife.",  
+];
+
+export default function LettersFromMyHeartPage({ onBack }: LettersFromMyHeartPageProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(false);
+
+  const handleNext = () => {
+    setFade(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % LETTERS.length);
+      setFade(false);
+    }, 300); // fade duration
+  };
+
+  return (
+    <div className="min-h-screen relative overflow-hidden">
+      {/* 🌅 Background image (from your public/images/background.jpeg) */}
+      <div
+        className="fixed inset-0 bg-cover bg-center -z-10"
+        style={{ backgroundImage: "url('/images/background.jpeg')" }}
+      />
+      {/* Overlay for readability */}
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm -z-10" />
+
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
+        {/* Back button */}
+        <button
+          onClick={onBack}
+          className="absolute top-6 left-6 group flex items-center gap-2 text-pink-200 hover:text-pink-100 transition-colors focus:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 rounded-lg px-3 py-2"
+        >
+          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+          <span className="font-medium">Back</span>
+        </button>
+
+        {/* Title */}
+        <h1 className="font-serif text-4xl md:text-6xl text-pink-100 mb-10 drop-shadow-lg leading-tight">
+          Letters From My Heart 💌
+        </h1>
+
+        {/* Letter container */}
+        <div
+          className={`max-w-2xl bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-8 shadow-lg transition-opacity duration-300 ${
+            fade ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
+          <p className="text-lg md:text-xl text-pink-50 font-light whitespace-pre-line leading-relaxed">
+            {LETTERS[currentIndex]}
+          </p>
+        </div>
+
+        {/* Next button */}
+        <div className="mt-10">
+          <button
+            onClick={handleNext}
+            className="group bg-gradient-to-r from-pink-500/90 to-rose-600/90 hover:from-pink-600 hover:to-rose-700 backdrop-blur-sm text-white font-semibold text-lg px-8 py-3 rounded-2xl shadow-lg hover:shadow-pink-500/40 transform hover:scale-105 transition-all duration-300 border border-white/20 flex items-center gap-2"
+          >
+            Next Letter
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

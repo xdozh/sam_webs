@@ -3,12 +3,13 @@ import LockScreen from './components/LockScreen';
 import AnniversaryHome from './pages/AnniversaryHome';
 import GoldenMomentsPage from './pages/GoldenMomentsPage';
 import YourEyesOnlyPage from './pages/YourEyesOnly';
-import FlowersPage from './pages/FlowersPage'; // 🆕 import
+import FlowersPage from './pages/FlowersPage';
+import LettersFromMyHeartPage from './pages/ LettersFromMyHeartPage'; // 🆕
 
 function App() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'gallery' | 'youreyesonly' | 'flowers'>('home'); // 🆕
+  const [currentPage, setCurrentPage] = useState<'home' | 'gallery' | 'youreyesonly' | 'flowers' | 'letters'>('home'); // 🆕
 
   const handleUnlock = () => {
     setIsUnlocked(true);
@@ -31,7 +32,8 @@ function App() {
             <AnniversaryHome
               onNavigateToGallery={() => setCurrentPage('gallery')}
               onNavigateToYourEyesOnly={() => setCurrentPage('youreyesonly')}
-              onNavigateToFlowers={() => setCurrentPage('flowers')} // 🆕
+              onNavigateToFlowers={() => setCurrentPage('flowers')}
+              onNavigateToLetters={() => setCurrentPage('letters')} // 🆕
             />
           )}
 
@@ -42,13 +44,9 @@ function App() {
             />
           )}
 
-          {currentPage === 'youreyesonly' && (
-            <YourEyesOnlyPage onBack={() => setCurrentPage('home')} />
-          )}
-
-          {currentPage === 'flowers' && (
-            <FlowersPage onBack={() => setCurrentPage('home')} /> // 🆕
-          )}
+          {currentPage === 'youreyesonly' && <YourEyesOnlyPage onBack={() => setCurrentPage('home')} />}
+          {currentPage === 'flowers' && <FlowersPage onBack={() => setCurrentPage('home')} />}
+          {currentPage === 'letters' && <LettersFromMyHeartPage onBack={() => setCurrentPage('home')} />} {/* 🆕 */}
 
           {showConfetti && (
             <div className="fixed inset-0 pointer-events-none z-50">
