@@ -6,8 +6,8 @@ interface PlaylistLinksProps {
 }
 
 export default function PlaylistLinks({
-  ourUrl = 'https://spotify.link/ZKp5xSkGDXb',
-  privateUrl = 'https://example.com/private-playlist',
+  ourUrl = 'https://spotify.link/vKV5fDlQDXb',
+  privateUrl = 'https://spotify.link/ZKp5xSkGDXb',
 }: PlaylistLinksProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl">
@@ -34,10 +34,10 @@ export default function PlaylistLinks({
       >
         <div className="flex items-center justify-center gap-3 mb-3">
           <Lock className="w-5 h-5 md:w-6 md:h-6 text-white" />
-          <h3 className="font-serif text-xl md:text-2xl text-white">For Your Eyes Only</h3>
+          <h3 className="font-serif text-xl md:text-2xl text-white">Her</h3>
         </div>
         <p className="text-center text-white/90 text-sm">
-          A private collection just for you
+          Songs that remind me of you
         </p>
       </a>
     </div>

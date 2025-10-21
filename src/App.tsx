@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import LockScreen from './components/LockScreen';
 import AnniversaryHome from './pages/AnniversaryHome';
 import GoldenMomentsPage from './pages/GoldenMomentsPage';
+import YourEyesOnlyPage from './pages/YourEyesOnly'; // 🆕 import
 
 function App() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'gallery'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'gallery' | 'youreyesonly'>('home'); // 🆕 added youreyesonly
 
   const handleUnlock = () => {
     setIsUnlocked(true);
@@ -27,10 +28,22 @@ function App() {
         <LockScreen onUnlock={handleUnlock} />
       ) : (
         <>
-          {currentPage === 'home' ? (
-            <AnniversaryHome onNavigateToGallery={() => setCurrentPage('gallery')} />
-          ) : (
-            <GoldenMomentsPage onBack={() => setCurrentPage('home')} />
+          {currentPage === 'home' && (
+            <AnniversaryHome
+              onNavigateToGallery={() => setCurrentPage('gallery')}
+              onNavigateToYourEyesOnly={() => setCurrentPage('youreyesonly')} // 🆕 added prop
+            />
+          )}
+
+          {currentPage === 'gallery' && (
+            <GoldenMomentsPage
+              onBack={() => setCurrentPage('home')}
+              onNavigateToYourEyesOnly={() => setCurrentPage('youreyesonly')} // 🆕 added
+            />
+          )}
+
+          {currentPage === 'youreyesonly' && (
+            <YourEyesOnlyPage onBack={() => setCurrentPage('home')} /> // 🆕 new route
           )}
 
           {showConfetti && (

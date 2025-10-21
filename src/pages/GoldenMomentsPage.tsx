@@ -1,4 +1,4 @@
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Heart } from 'lucide-react';
 
 interface Memory {
   id: number;
@@ -7,7 +7,7 @@ interface Memory {
 }
 
 const memories: Memory[] = [
-  { id: 1, image: 'images/memories/Promise.jpeg', caption: 'Promise❤️' },
+  { id: 1, image: '/images/memories/Promise.jpeg', caption: 'Promise❤️' },
   { id: 2, image: '/images/memories/Anniversary.jpeg', caption: 'One Year❤️' },
   { id: 3, image: '/images/memories/Pretty Hands.jpeg', caption: 'Aquarium Date❤️' },
   { id: 4, image: '/images/memories/Aquarium date.jpeg', caption: 'Aquarium Selfie❤️' },
@@ -25,18 +25,20 @@ const memories: Memory[] = [
   { id: 16, image: '/images/memories/Future Talks.jpeg', caption: 'Future talks❤️' },
   { id: 17, image: '/images/memories/Princesses Birthday.jpeg', caption: 'Princesses Birthday❤️' },
   { id: 18, image: '/images/memories/First Message.jpeg', caption: 'The Beginning❤️' },
- 
 ];
 
 interface GoldenMomentsPageProps {
   onBack: () => void;
+  onNavigateToYourEyesOnly?: () => void; // 🆕 optional for smooth navigation
 }
 
-export default function GoldenMomentsPage({ onBack }: GoldenMomentsPageProps) {
+export default function GoldenMomentsPage({ onBack, onNavigateToYourEyesOnly }: GoldenMomentsPageProps) {
   return (
     <div className="min-h-screen relative overflow-x-hidden">
+      {/* Background */}
       <div className="fixed inset-0 bg-gradient-to-b from-indigo-950 via-sky-900 to-amber-300/30 -z-10" />
 
+      {/* Sparkles */}
       <div className="fixed inset-0 -z-10 pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <div
@@ -52,8 +54,10 @@ export default function GoldenMomentsPage({ onBack }: GoldenMomentsPageProps) {
         ))}
       </div>
 
+      {/* Main Content */}
       <div className="relative z-10 px-4 py-8 md:py-12">
         <div className="max-w-7xl mx-auto">
+          {/* Back Button */}
           <button
             onClick={onBack}
             className="group mb-8 flex items-center gap-2 text-amber-200 hover:text-amber-100 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-transparent rounded-lg px-3 py-2"
@@ -66,6 +70,7 @@ export default function GoldenMomentsPage({ onBack }: GoldenMomentsPageProps) {
             Golden Moments
           </h1>
 
+          {/* Gallery */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
             {memories.map((memory) => (
               <div
@@ -99,6 +104,21 @@ export default function GoldenMomentsPage({ onBack }: GoldenMomentsPageProps) {
               </div>
             ))}
           </div>
+
+          {/* 🆕 Your Eyes Only Button */}
+          {onNavigateToYourEyesOnly && (
+            <div className="flex justify-center mt-12">
+              <button
+                onClick={onNavigateToYourEyesOnly}
+                className="group bg-gradient-to-r from-pink-500/90 to-rose-600/90 hover:from-pink-600 hover:to-rose-700 backdrop-blur-sm text-white font-semibold text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-2xl shadow-lg hover:shadow-pink-500/40 transform hover:scale-105 transition-all duration-300 border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-transparent"
+              >
+                <span className="flex items-center gap-3">
+                  <Heart className="w-5 h-5 md:w-6 md:h-6" />
+                  Go to Your Eyes Only ❤️
+                </span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
